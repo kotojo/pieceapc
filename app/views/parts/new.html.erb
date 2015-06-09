@@ -1,0 +1,28 @@
+<h1> DOING IT LIVE </h1>
+
+<%= form_tag new_part_path, :method => 'get' do %>
+    <%= text_field_tag :item, params[:item] %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% @item.each do |item| %>
+<%= image_tag item["Image"]["SmallImagePath"] %><br>
+<%= item["Title"] %><br>
+Model: <%= item["Model"] %><br>
+Price: <%= item["FinalPrice"] %><br>
+
+<%= form_for(@parts) do |f| %>
+  <div class="field">
+    <%= f.label :computer_id %><br>
+    <%= f.collection_select :computer_id, Computer.order(:name), :id, :name, prompt: true %>
+  </div>
+  <div class="field">
+  <%= f.label :api_id %><br>
+  <%= f.text_field :api_id, value: item['NeweggItemNumber'] %>
+  </div><br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<br>
+<% end %>
