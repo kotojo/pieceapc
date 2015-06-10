@@ -1,10 +1,11 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
 
   # GET /computers
   # GET /computers.json
   def index
-    @computers = Computer.all
+    @computers = current_user.todos.order(created_at: :desc)
   end
 
   # GET /computers/1
@@ -35,6 +36,7 @@ class ComputersController < ApplicationController
   # POST /computers.json
   def create
     @computer = Computer.new(computer_params)
+    @computer.user = current_user
 
     respond_to do |format|
       if @computer.save
