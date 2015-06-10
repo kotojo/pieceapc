@@ -1,6 +1,7 @@
 class Computer < ActiveRecord::Base
   validates :name, presence: true
   has_many :parts, dependent: :destroy
+  belongs_to :user
 
   def self.retrieve(api_id)
     # user_input ||= " "
