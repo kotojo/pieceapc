@@ -12,15 +12,13 @@ class ComputersController < ApplicationController
   # GET /computers/1
   # GET /computers/1.json
   def show
-
-    @computer.price = 0
-
     @arr = []
+
+    @computer.update_attribute(:price, 0)
 
     @computer.parts.each do |part|
       @arr.push(Computer.retrieve(part.api_id))
-      count = 0
-      @computer.price += @arr[count][0]["FinalPrice"].reverse.chop.reverse.to_f
+      @computer.price += @arr[@arr.length-1][0]["FinalPrice"].reverse.chop.reverse.to_f
       @computer.update_attribute(:price, @computer.price)
     end
   end

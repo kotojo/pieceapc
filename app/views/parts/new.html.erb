@@ -5,29 +5,28 @@
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<% @item.each do |item| %>
-<%= image_tag item["Image"]["SmallImagePath"] %><br>
-<%= item["Title"] %><br>
-Model: <%= item["Model"] %><br>
-Price: <%= item["FinalPrice"] %><br>
+<% if params[:item] != nil %>
+  <% @item.each do |item| %>
+  <div class="col-xs-6 items">
+  <%= image_tag item["Image"]["SmallImagePath"] %><br>
+  <strong><%= item["Title"] %></strong><br>
+  Model: <%= item["Model"] %><br>
+  Price: <%= item["FinalPrice"] %><br>
 
-<%= form_for(@parts) do |f| %>
-  <div class="field">
-    <%= f.label :computer_id %><br>
-    <%= f.collection_select :computer_id, @computers, :id, :name, prompt: true %>
-  </div>
-  <div class="field">
-  <%= f.label :api_id %>
-  <%= f.text_field :api_id, value: item['NeweggItemNumber'] %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, value: item['Title'] %>
-  </div>
+
+  <%= form_for(@parts) do |f| %>
+    <div class="field">
+      <%= f.label :computer_id %><br>
+      <%= f.collection_select :computer_id, @computers, :id, :name, prompt: true %>
+      <input type="hidden" name="part[name]"   value="<%= item['Title'] %>" />
+      <input type="hidden" name="part[api_id]" value="<%= item['NeweggItemNumber'] %>" />
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
   <br>
-  <div class="actions">
-    <%= f.submit %>
   </div>
-<% end %>
-<br>
+  <% end %>
 <% end %>

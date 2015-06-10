@@ -1,11 +1,14 @@
 class PartsController < ApplicationController
   def new
     @parts = Part.new
-    @item = Part.retrieve(params[:item])
+    if params[:item] != nil
+      @item = Part.retrieve(params[:item])
+    end
     @computers = current_user.computers
   end
 
   def create
+    puts "PartsController.create has params = #{params}"
     @part = Part.new(part_params)
     @part.save
     redirect_to computer_path(@part.computer_id)

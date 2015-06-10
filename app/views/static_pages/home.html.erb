@@ -15,10 +15,10 @@
   <h3>Price</h3>
   <p><%= number_to_currency(computer.price) %></p>
   <h3>Parts</h3>
-  <p>
+  <ul>
     <% computer.parts.each do |part| %>
-      <%= part.name %><br>
+      <li><%= part.name %></li>
     <% end %>
-  </p>
+  </ul>
   </div>
 <% end %>
