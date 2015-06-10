@@ -1,5 +1,6 @@
 class Computer < ActiveRecord::Base
-  has_many :parts
+  validates :name, presence: true
+  has_many :parts, dependent: :destroy
 
   def self.retrieve(api_id)
     # user_input ||= " "
@@ -8,7 +9,7 @@ class Computer < ActiveRecord::Base
     #   user_input = " "
     # end
 
-    Newegg.search(store_id: 1, category_id: 38, page_number: 1, sort: "FEATURED", keywords: "#{api_id}")["ProductListItems"]
+    Newegg.search(store_id: 1, page_number: 1, sort: "FEATURED", keywords: "#{api_id}")["ProductListItems"]
 
   end
 end

@@ -17,7 +17,7 @@ Price: <%= item["FinalPrice"] %><br>
     <%= f.collection_select :computer_id, Computer.order(:name), :id, :name, prompt: true %>
   </div>
   <div class="field">
-  <%= f.label :api_id %><br>
+  <%= f.label :api_id %>
   <%= f.text_field :api_id, value: item['NeweggItemNumber'] %>
   </div><br>
   <div class="actions">

@@ -11,6 +11,12 @@ class PartsController < ApplicationController
     redirect_to computer_path(@part.computer_id)
   end
 
+  def destroy
+    @part = Part.find(params[:id])
+    @part.destroy
+    redirect_to computer_path(@part.computer_id)
+  end
+
   private
 
     def part_params

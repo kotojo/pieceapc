@@ -10,7 +10,7 @@ class Part < ActiveRecord::Base
     #   user_input = " "
     # end
 
-    Newegg.search(store_id: 1, category_id: 38, page_number: 1, sort: "FEATURED", keywords: "#{user_input}")["ProductListItems"]
+    Newegg.search(store_id: 1, page_number: 1, sort: "FEATURED", keywords: "#{user_input}")["ProductListItems"]
 
   end
 end

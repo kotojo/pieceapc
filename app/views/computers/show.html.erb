@@ -17,18 +17,11 @@
 <dl class="dl-horizontal">
   <dt>Description:</dt>
   <dd><%= @computer.description %></dd>
-
   <dt>Price:</dt>
-  <dd><%= @computer.price %></dd>
+  <dd><%= number_to_currency(@computer.price) %></dd>
 
 </dl>
-
-  <% @arr.each do |i| %>
-    <%= image_tag i[0]["Image"]["SmallImagePath"] %><br>
-    <%= i[0]["Title"] %><br>
-    Model: <%= i[0]["Model"] %><br>
-    Price: <%= i[0]["FinalPrice"] %><br>
+  <% if @arr.count > 0 %>
+    <%= render 'partlist' %>
   <% end %>
-
-
 

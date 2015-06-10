@@ -1,0 +1,8 @@
+<% @arr.each do |i| %>
+  <%= image_tag i[0]["Image"]["SmallImagePath"] %><br>
+  <%= i[0]["Title"] %><br>
+  Model: <%= i[0]["Model"] %><br>
+  Price: <%= i[0]["FinalPrice"] %><br>
+  <% count = 0 %>
+  <%= link_to 'Destroy', @computer.parts[count], method: :delete %><br>
+<% end %>
