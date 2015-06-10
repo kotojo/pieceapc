@@ -2,6 +2,23 @@
   <h1>Piece a PC</h1>
   <h3>Where you can piece together a PC in peace!</h3>
   <br/>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-  <%= link_to "Sign in",      signin_path, class: "btn btn-large btn-primary" %>
+  <% if !signed_in? %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+    <%= link_to "Sign in",      signin_path, class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
+
+<% @computers.each do |computer| %>
+  <div>
+  <h3>Name</h3>
+  <p><%= computer.name %> </p>
+  <h3>Price</h3>
+  <p><%= number_to_currency(computer.price) %></p>
+  <h3>Parts</h3>
+  <p>
+    <% computer.parts.each do |part| %>
+      <%= part.name %><br>
+    <% end %>
+  </p>
+  </div>
+<% end %>

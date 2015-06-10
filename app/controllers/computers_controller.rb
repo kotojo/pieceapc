@@ -1,11 +1,12 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user
 
   # GET /computers
   # GET /computers.json
   def index
-    @computers = current_user.todos.order(created_at: :desc)
+    @computers = current_user.computers.order(created_at: :desc)
   end
 
   # GET /computers/1
@@ -20,6 +21,7 @@ class ComputersController < ApplicationController
       @arr.push(Computer.retrieve(part.api_id))
       count = 0
       @computer.price += @arr[count][0]["FinalPrice"].reverse.chop.reverse.to_f
+      @computer.update_attribute(:price, @computer.price)
     end
   end
 
@@ -82,5 +84,10 @@ class ComputersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def computer_params
       params.require(:computer).permit(:name, :description, :price)
+    end
+
+    def correct_user
+      @todo = current_user.computers.find_by(id: params[:id])
+      redirect_to root_url if @todo.nil?
     end
 end

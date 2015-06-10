@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    redirect_to computers_path if signed_in?
+    @computers = Computer.all
   end
 
   def about

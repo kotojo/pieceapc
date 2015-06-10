@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -71,5 +73,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    end
+
+    def correct_user
+      user = User.find_by(id: params[:id])
+      redirect_to root_url unless current_user?(user)
     end
 end

@@ -2,7 +2,7 @@ class PartsController < ApplicationController
   def new
     @parts = Part.new
     @item = Part.retrieve(params[:item])
-    @computers = Computer.all
+    @computers = current_user.computers
   end
 
   def create
@@ -20,6 +20,6 @@ class PartsController < ApplicationController
   private
 
     def part_params
-      params.require(:part).permit(:api_id, :computer_id)
+      params.require(:part).permit(:api_id, :computer_id, :name)
     end
 end
