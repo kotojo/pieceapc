@@ -3,9 +3,9 @@
 <%= form_tag new_part_path, :method => 'get' do %>
     <%= text_field_tag :item, params[:item] %>
     <%= submit_tag "Search", :name => nil %>
-<% end %>
+<% end %><br>
 
-<% if params[:item] != nil %>
+<% if params[:item] && @item != nil %>
   <% @item.each do |item| %>
   <div class="col-xs-6 items">
   <%= image_tag item["Image"]["SmallImagePath"] %><br>

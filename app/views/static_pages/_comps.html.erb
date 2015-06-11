@@ -1,0 +1,14 @@
+<% @computers.each do |computer| %>
+  <div class="col-sm-6 items">
+  <h3>Name</h3>
+  <p><%= computer.name %> by <%= computer.user %></p>
+  <h4>Price</h4>
+  <p><%= number_to_currency(computer.price) %></p>
+  <h4>Parts</h4>
+  <ul>
+    <% computer.parts.each do |part| %>
+      <li><%= part.name %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>

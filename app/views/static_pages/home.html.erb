@@ -8,17 +8,10 @@
   <% end %>
 </div>
 
-<% @computers.each do |computer| %>
-  <div>
-  <h3>Name</h3>
-  <p><%= computer.name %> </p>
-  <h3>Price</h3>
-  <p><%= number_to_currency(computer.price) %></p>
-  <h3>Parts</h3>
-  <ul>
-    <% computer.parts.each do |part| %>
-      <li><%= part.name %></li>
-    <% end %>
-  </ul>
-  </div>
-<% end %>
+<div class="centered">
+<button type="button" class="btn btn-default" id="compShow">Show some computer builds!</button>
+</div>
+
+<div id="myForm" class="appear">
+  <%= render 'comps' %>
+</div>
