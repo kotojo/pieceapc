@@ -1,4 +1,15 @@
 <h1> DOING IT LIVE </h1>
+<% if @part.errors.any? %>
+  <div class="alert alert-danger alert-dismissable" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4><%= pluralize(@part.errors.count, "error") %> prohibited this computer from being saved:</h4>
+    <ul>
+    <% @part.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_tag new_part_path, :method => 'get' do %>
     <%= text_field_tag :item, params[:item] %>
@@ -14,7 +25,7 @@
   Price: <%= item["FinalPrice"] %><br>
 
 
-  <%= form_for(@parts) do |f| %>
+  <%= form_for(@part) do |f| %>
     <div class="field">
       <%= f.label :computer_id %><br>
       <%= f.collection_select :computer_id, @computers, :id, :name, prompt: true %>

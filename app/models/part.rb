@@ -1,5 +1,6 @@
 class Part < ActiveRecord::Base
   belongs_to :computer
+  validates :computer_id, presence: true
 
   require 'newegg'
 

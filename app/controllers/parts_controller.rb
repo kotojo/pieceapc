@@ -1,6 +1,6 @@
 class PartsController < ApplicationController
   def new
-    @parts = Part.new
+    @part = Part.new
     if params[:item] != nil
       @item = Part.retrieve(params[:item])
     end
@@ -10,8 +10,17 @@ class PartsController < ApplicationController
   def create
     puts "PartsController.create has params = #{params}"
     @part = Part.new(part_params)
-    @part.save
-    redirect_to computer_path(@part.computer_id)
+
+    respond_to do |format|
+      if @part.save
+        format.html { redirect_to computer_path(@part.computer_id), notice: 'Post was successful.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to new_part_path }
+        format.json { render json: @part.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def destroy
