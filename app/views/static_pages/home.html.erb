@@ -3,12 +3,12 @@
   <h3>Where you can piece together a PC in peace!</h3>
   <br/>
   <% if !signed_in? %>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-    <%= link_to "Sign in",      signin_path, class: "btn btn-large btn-primary" %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-custom btn-large btn-primary" %>
+    <%= link_to "Sign in",      signin_path, class: "btn btn-custom btn-large btn-primary" %>
   <% end %>
 </div>
 
 <div class="centered">
-<%= link_to("View other's computers!", "/build", :class => 'btn btn-large btn-primary')  %>
+<%= link_to("View other's computers!", "/build", :class => 'btn btn-custom btn-large btn-primary')  %>
 </div>
 

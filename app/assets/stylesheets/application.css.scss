@@ -17,6 +17,10 @@ body {
   }
 }
 
+a {
+  color: white;
+}
+
 input[type="radio"], input[type="checkbox"] {
   width: initial;
   height: initial;
@@ -26,10 +30,4 @@ input[type="radio"], input[type="checkbox"] {
 main {
   margin: 20px auto;
   width: 80%;
-}
-
-.todos {
-  th, td {
-    text-align:center
-  }
 }
