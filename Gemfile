@@ -19,6 +19,8 @@ gem 'newegg-api'
 
 gem 'will_paginate', '~> 3.0.5'
 
+gem 'acts_as_votable'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :sessions, only:[:new, :create, :destroy]
 
   resources :users
-  resources :computers
+  resources :computers do
+    member do
+      put 'like',    to: 'computers#upvote'
+      put 'dislike', to: 'computers#downvote'
+      put 'unlike',  to: 'computers#unvote'
+    end
+  end
   resources :parts
   root 'static_pages#home'
 

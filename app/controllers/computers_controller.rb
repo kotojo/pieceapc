@@ -18,7 +18,7 @@ class ComputersController < ApplicationController
 
     @computer.parts.each do |part|
       @arr.push(Computer.retrieve(part.api_id))
-      @computer.price += @arr[@arr.length-1][0]["FinalPrice"].reverse.chop.reverse.to_f
+      @computer.price += @arr[@arr.length-1][0]["FinalPrice"].gsub(/[$,]/,'').to_f
       @computer.update_attribute(:price, @computer.price)
     end
   end
@@ -71,6 +71,24 @@ class ComputersController < ApplicationController
       format.html { redirect_to computers_url, notice: 'Computer was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @computer = Computer.find(params[:id])
+    @computer.upvote_by current_user
+    redirect_to build_path
+  end
+
+  def downvote
+    @computer = Computer.find(params[:id])
+    @computer.downvote_by current_user
+    redirect_to build_path
+  end
+
+  def unvote
+    @computer = Computer.find(params[:id])
+    @computer.unvote_by current_user
+    redirect_to build_path
   end
 
   private

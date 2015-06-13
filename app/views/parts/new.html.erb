@@ -29,8 +29,8 @@
     <div class="field">
       <%= f.label :computer_id %><br>
       <%= f.collection_select :computer_id, @computers, :id, :name, prompt: true %>
-      <input type="hidden" name="part[name]"   value="<%= item['Title'] %>" />
-      <input type="hidden" name="part[api_id]" value="<%= item['NeweggItemNumber'] %>" />
+      <%= hidden_field_tag "part[name]", item['Title'] %>
+      <%= hidden_field_tag "part[api_id]", item['NeweggItemNumber'] %>
     </div>
     <br>
     <div class="actions">
