@@ -13,7 +13,7 @@ class PartsController < ApplicationController
 
     respond_to do |format|
       if @part.save
-        format.html { redirect_to computer_path(@part.computer_id), notice: 'Post was successful.' }
+        format.html { redirect_to computer_path(@part.computer_id), notice: 'Part added sucessfully!' }
         format.json { head :no_content }
       else
         format.html { redirect_to new_part_path }

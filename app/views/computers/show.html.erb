@@ -1,14 +1,14 @@
 <div class="page-header">
-  <%= link_to new_part_path, class: 'btn btn-default' do %>
+  <%= link_to new_part_path, class: 'btn btn-custom' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Add Parts
   <% end %>
-  <%= link_to computers_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
+  <%= link_to computers_path, class: 'btn btn-custom' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
     Back
   <% end %>
-  <%= link_to edit_computer_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
+  <%= link_to edit_computer_path, class: 'btn btn-custom2' do %>
+    <span class="glyphicon glyphicon-plus-sign"></span>
     Edit
   <% end %>
   <h1><%= @computer.name %></h1>
@@ -19,7 +19,6 @@
   <dd><%= @computer.description %></dd>
   <dt>Price:</dt>
   <dd><%= number_to_currency(@computer.price) %></dd>
-
 </dl>
   <% if @arr.count > 0 %>
     <%= render 'partlist' %>

@@ -1,4 +1,4 @@
-<h1> DOING IT LIVE </h1>
+<h1 class="white"> PC Pieces </h1>
 <% if @part.errors.any? %>
   <div class="alert alert-danger alert-dismissable" role="alert">
     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -13,7 +13,7 @@
 
 <%= form_tag new_part_path, :method => 'get' do %>
     <%= text_field_tag :item, params[:item] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", class: "btn-custom", :name => nil %>
 <% end %><br>
 
 <% if params[:item] && @item != nil %>
@@ -34,7 +34,7 @@
     </div>
     <br>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'new part', class: "btn-custom" %>
     </div>
   <% end %>
   <br>

@@ -1,10 +1,12 @@
 <% @arr.each do |i| %>
-  <div class="col-sm-6 items">
-    <%= image_tag i[0]["Image"]["SmallImagePath"], class: "text-center" %><br>
-    <%= i[0]["Title"] %><br>
-    Model: <%= i[0]["Model"] %><br>
-    Price: <%= i[0]["FinalPrice"] %><br>
-    <% count = 0 %>
-    <%= link_to 'Destroy', @computer.parts[count], method: :delete %><br>
+  <div class="col-sm-6">
+    <div class="col-sm-12 items">
+      <%= image_tag i[0]["Image"]["SmallImagePath"], class: "text-center" %><br>
+      <%= i[0]["Title"] %><br>
+      <strong>Model:</strong> <%= i[0]["Model"] %><br>
+      <strong>Price:</strong> <%= i[0]["FinalPrice"] %><br>
+      <% count = 0 %>
+      <%= link_to 'Destroy', @computer.parts[count], method: :delete, class: "link"%><br>
+    </div>
   </div>
 <% end %>

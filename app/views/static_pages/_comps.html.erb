@@ -1,5 +1,5 @@
 <% @computers.each do |computer| %>
-  <div class="col-sm-6 items">
+  <div class="items">
   <h3>Name</h3>
   <p><%= computer.name %> by <%= computer.user %></p>
   <h4>Price</h4>
@@ -10,10 +10,10 @@
       <li><%= part.name %></li>
     <% end %>
   </ul>
-  <%= link_to("Upvote", like_computer_path(computer), method: :put, :class => 'btn btn-small btn-primary')  %>
-  <%= link_to("Downvote", dislike_computer_path(computer), method: :put, :class => 'btn btn-small btn-primary')  %>
-  <%= link_to("Unvote", unlike_computer_path(computer), method: :put, :class => 'btn btn-small btn-primary')  %>
   <p><strong>Rating: </strong><%= computer.score %></p>
+  <%= link_to("", like_computer_path(computer), method: :put, :class => 'btn btn-small btn-custom glyphicon glyphicon-thumbs-up')  %>
+  <%= link_to("", dislike_computer_path(computer), method: :put, :class => 'btn btn-small btn-custom glyphicon glyphicon-thumbs-down')  %>
+  <%= link_to("", unlike_computer_path(computer), method: :put, :class => 'btn btn-small btn-custom glyphicon glyphicon-minus')  %>
   </div>
 <% end %>
-<%= will_paginate @computers, class: "pagination col-xs-12" %>
+<%= will_paginate @computers, class: "flickr_pagination col-xs-12" %>
