@@ -5,9 +5,9 @@ PieceAPC is a web application that is used to search for pc parts using [NewEgg-
 * Ruby 2.2.2
 * Rails 4.2.1
 * PostgreSQL Database
-* Authentication/Authorization through [b-crypt](http://bcrypt-ruby.rubyforge.org/) 3.1.10
-* [NewEgg-Api](https://github.com/chrismagnacca/newegg-api)
-* [Bootstrap](http://www.getbootstrap.com) 3.3.4
+* Authentication/Authorization through [b-crypt](http://bcrypt-ruby.rubyforge.org.md) 3.1.10
+* [NewEgg-Api](https://github.com/chrismagnacca/newegg-api.md)
+* [Bootstrap](http://www.getbootstrap.com.md) 3.3.4
 
 ##User Stories
 * As a user, I can sign up for an account with an email address and password.
@@ -22,6 +22,6 @@ PieceAPC is a web application that is used to search for pc parts using [NewEgg-
 * As a user, I can sort user computers based off Rating, or Price.
 
 ##Links
-* [Heroku PieceAPC](http://pieceapc.herokuapp.com/)
-* [PieceAPC GitHub](http://github.com/kotojo/pieceapc)
-* [Trello](https://trello.com/b/TgOaVPTO/pieceapc)
+* [Heroku PieceAPC](http://pieceapc.herokuapp.com.md)
+* [PieceAPC GitHub](http://github.com/kotojo/pieceapc.md)
+* [Trello](https://trello.com/b/TgOaVPTO/pieceapc.md)
