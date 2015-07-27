@@ -15,16 +15,14 @@
         <th>Price</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <%= content_tag_for(:tr, @computers) do |computer| %>
-            <td><%= computer.name %></td>
-            <td><%= computer.description %></td>
-            <td><%= number_to_currency(computer.price) %></td>
-            <td><%= link_to 'Show', computer %></td>
+        <td><%= link_to computer.name, computer %></td>
+        <td><%= computer.description %></td>
+        <td><%= number_to_currency(computer.price) %></td>
         <td><%= link_to 'Edit', edit_computer_path(computer) %></td>
         <td><%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
